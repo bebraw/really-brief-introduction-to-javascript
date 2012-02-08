@@ -1,85 +1,500 @@
 <!DOCTYPE html>
+
+<!--
+  Slide System:
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
 <html>
-<head>
-  <meta charset='utf-8'>
+  <head>
+    <title>Really Brief Introduction to JavaScript</title>
 
-  <title>bebraw/really-brief-introduction-to-javascript @ GitHub</title>
-
-  <style type="text/css">
-    body {
-      margin-top: 1.0em;
-      background-color: #682e5f;
-      font-family: Helvetica, Arial, FreeSans, san-serif;
-      color: #ffffff;
+    <meta charset='utf-8'>
+    <script
+      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+    article {
+      background-color: white;
+      background: url(http://koodilehto.fi/images/logo_black.png) 820px 625px no-repeat; /* TODO: point to proper logo */
     }
-    #container {
-      margin: 0 auto;
-      width: 700px;
+    
+    .source {
+      background-color: white;
+      padding: 0.5em;
+      opacity: 0.9;
     }
-    h1 { font-size: 3.8em; color: #97d1a0; margin-bottom: 3px; }
-    h1 .small { font-size: 0.4em; }
-    h1 a { text-decoration: none }
-    h2 { font-size: 1.5em; color: #97d1a0; }
-    h3 { text-align: center; color: #97d1a0; }
-    a { color: #97d1a0; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-    pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
   </style>
-</head>
 
-<body>
-  <a href="https://github.com/bebraw/really-brief-introduction-to-javascript"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  <body style='display: none'>
 
-  <div id="container">
+    <section class='slides layout-regular'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+      
+     <article class='fill'>
+        <h3>
+          Really Brief Introduction to JavaScript
+        </h3>
+       <p style="color:white">
+          Juho Vepsäläinen
+          <br>
+          Feb 9, 2012
+        </p>
+        <p>
+          <img src='http://farm4.staticflickr.com/3231/2778624999_f06e84101b_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/jeffeaton/2778624999/">http://www.flickr.com/photos/jeffeaton/2778624999/</a>
+        </div>
+      </article>
 
-    <div class="download">
-      <a href="https://github.com/bebraw/really-brief-introduction-to-javascript/zipball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/zip.png"></a>
-      <a href="https://github.com/bebraw/really-brief-introduction-to-javascript/tarball/master">
-        <img border="0" width="90" src="https://github.com/images/modules/download/tar.png"></a>
-    </div>
+      <article class='fill'>
+        <p>
+          <img src='http://farm1.staticflickr.com/41/77419568_997ee46090_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/augie/77419568/">http://www.flickr.com/photos/augie/77419568/</a>
+        </div>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm5.staticflickr.com/4044/4206032023_445cddb027_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/equanimity/4206032023/">http://www.flickr.com/photos/equanimity/4206032023/</a>
+        </div>
+      </article>
+                  
+      <article class='fill'>
+        <p>
+          <img style="margin-left:-4em" src='http://farm1.staticflickr.com/213/452908317_9c84885384_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/michaelheiss/452908317/">http://www.flickr.com/photos/michaelheiss/452908317/</a>
+        </div>
+      </article>
+            
+      <article>
+        <h3>
+          Hello World!
+        </h3>
+        <section>
+        <pre>
+console.log('Hello World!');
 
-    <h1><a href="https://github.com/bebraw/really-brief-introduction-to-javascript">really-brief-introduction-to-javascript</a>
-      <span class="small">by <a href="https://github.com/bebraw">bebraw</a></span></h1>
+document.write('Hello World!');
 
-    <div class="description">
-      Presentation slides
-    </div>
+$('body').html('Hello World!');
+</pre>
+        </section>
+      </article>
+      
+       <article>
+        <h3>
+          Hello World variants at REPL!
+        </h3>
+        <section>
+        <pre>
+>>> s = 'Hello world!'
+>>> console.dir(String)
+function String() { [native code] }
+>>> s.toUpperCase()
+'HELLO WORLD!'
+>>> s.title()
+TypeError: Object Hello world! has no method 'title'
+</pre>
+        </section>
+      </article>
+      
+       <article>
+        <h3>
+          Implementing "title" - Spec
+        </h3>
+        <section>
+        <pre>
+function assert(s) {
+    if(!s) {
+        throw new Error('Assertion failed!');
+    }
+}
 
-    
+function title(s) {}
 
-    
+assert(title('Hello world!') === 'Hello World!');
+assert(title('hi') === 'Hi');
+assert(title() === undefined);
+</pre>
+        </section>
+      </article>
+      
+       <article>
+        <h3>
+          Implementing "title" - Implementation
+        </h3>
+        <section>
+        <pre>
+function title(s) {
+    # idea: split, set first to upper return joined
+    var capitalize = function(k) {
+        return k[0].toUpperCase() + k.slice(1);
+    };
 
-    
+    return s? s.split(' ').map(capitalize).join(' '): undefined;
+}
 
-    
+assert(title('Hello world!') === 'Hello World!');
+assert(title('hi') === 'Hi');
+assert(title() === undefined);
+</pre>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm3.staticflickr.com/2255/2159280574_aa7f92bb76_z.jpg?zz=1'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/stefz/2159280574/">http://www.flickr.com/photos/stefz/2159280574/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Function Syntax
+        </h3>
+        <section>
+        <pre>
+var id = function(a) {return a;};
 
-    
+function id(a) {
+    return a;
+}
 
-    
-      <h2>Contact</h2>
-      <p>Juho Vepsäläinen (bebraw@gmail.com)<br/>      </p>
-    
+function default_ret() {} // returns undefined
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="https://github.com/bebraw/really-brief-introduction-to-javascript/zipball/master">zip</a> or
-      <a href="https://github.com/bebraw/really-brief-introduction-to-javascript/tarball/master">tar formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/bebraw/really-brief-introduction-to-javascript</pre>
-    </p>
+function get_params() {
+    return arguments;
+}
+</pre>
+        </section>
+      </article>
 
-    <div class="footer">
-      get the source code on GitHub : <a href="https://github.com/bebraw/really-brief-introduction-to-javascript">bebraw/really-brief-introduction-to-javascript</a>
-    </div>
+      <article>
+        <h3>
+          First Class Citizen
+        </h3>
+        <section>
+        <pre>
+function myMap(cb, items) {
+    var ret = []
 
-  </div>
+    for(var i = 0, len = items.length; i &lt; len; i++) {
+        ret.push(cb(i, items[i]));
+    }
 
-</body>
+    return ret;
+}
+
+my_map(function(i, a) { return a^2; }, [0, 1, 2, 3, 4]);
+</pre>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm4.staticflickr.com/3184/2523773349_da6fb12c67_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/prettywarstl/2523773349/">http://www.flickr.com/photos/prettywarstl/2523773349/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Generators (not well supported)
+        </h3>
+        <ul>
+          <li><a href="https://developer.mozilla.org/en/New_in_JavaScript_1.7#Generators">https://developer.mozilla.org/en/New_in_JavaScript_1.7#Generators</a></li>
+          <li><a href="http://stackoverflow.com/questions/4126634/does-node-js-support-yield">http://stackoverflow.com/questions/4126634/does-node-js-support-yield</a></li>
+          <li>Pretty easy to mimic if needed. Example: </li>
+        </ul>
+        
+        <section>
+        <pre>
+function nums() {
+    var i = 0;
+
+    return {
+        next: function() {return i++;}
+    };
+}
+
+var a = nums(); // a.next(); ...
+</pre>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm1.staticflickr.com/47/110315663_112b1d05f2_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/tunruh/110315663/">http://www.flickr.com/photos/tunruh/110315663/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Data Types
+        </h3>
+        <section>
+        <pre>
+function getType(a) {
+    return Object.prototype.toString.call(a);
+}
+
+getType(5); // [object Number]
+getType(5.5); // [object Number]
+getType('foo'); // [object String]
+getType('foo'.toUpperCase); // [object Function]
+getType(title); // [object Function]
+getType(null); // [object Null]
+getType(undefined); // [object Undefined]
+getType(false); // [object Boolean]
+getType([]); // [object Array]
+getType({}); // [object Object]
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          Lists
+        </h3>
+        <section>
+        <pre>
+>>> b = [] // list, remember console.dir!
+>>> b.push('foo')
+>>> b = b.concat(['bar', 'baz'])
+>>> b
+['foo', 'bar', 'baz']
+>>> b.indexOf('foo') >= 0 // 'foo' in b at Python
+true
+</pre>
+        </section>
+      </article>
+
+      <article>
+        <h3>
+          Objects
+        </h3>
+        <section>
+        <pre>
+>>> c = {'joe': 123} // {joe: 123} works too
+>>> c['jack'] = 423 // c.jack = 423 works too
+>>> c
+{'joe': 123, 'jack': 423}
+>>> 'joe' in c
+True
+>>> c['moe']
+undefined
+>>> c['moe'] || 555
+555
+</pre>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm4.staticflickr.com/3296/2806034569_356e265d8d_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/clintjcl/2806034569/">http://www.flickr.com/photos/clintjcl/2806034569/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Classes
+        </h3>
+        <ul>
+          <li>No single, right way to define</li>
+          <li>Given JS uses a prototypal system, it's possible to define a "classical" class quite easily</li>
+          <li>Focus on objects instead of classes, compose instead of inherit</li>
+          <li>Often classical OOP might not be needed even</li>
+          <li>If you really need it, see <a href="http://www.phpied.com/3-ways-to-define-a-javascript-class/">http://www.phpied.com/3-ways-to-define-a-javascript-class/</a> for an example</li>
+        </ul>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm1.staticflickr.com/129/358114830_cfb7c81549_o.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/avlxyz/358114830/">http://www.flickr.com/photos/avlxyz/358114830/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Exceptions
+        </h3>
+        <section>
+        <pre>
+try {
+   
+}
+catch (err) {
+
+}
+finally {
+
+}
+</pre>
+          <div class='source'><a href="http://docs.python.org/tutorial/errors.html#handling-exceptions">http://docs.python.org/tutorial/errors.html#handling-exceptions</a></div>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm3.staticflickr.com/2406/2097239111_d67bf8d2f2_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/rofi/2097239111/">http://www.flickr.com/photos/rofi/2097239111/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Map, filter, reduce
+        </h3>
+        <section>
+        <pre>
+>>> // note that these might need a shim in older browser
+>>> // alternative you might want to use something like
+>>> // underscore.js
+>>> a = [0, 1, 2, 3, 4]
+>>> a.map(function(k) {return k * 2;})
+[0, 2, 4, 6, 8]
+>>>
+>>> a.filter(function(k) {return k > 3;})
+[4]
+>>>
+>>> a.reduce(function(a, b) {return a + b;})
+10
+>>> // note that some support reduceRight too
+>>> // see <a href="http://kangax.github.com/es5-compat-table/">http://kangax.github.com/es5-compat-table/</a>
+</pre>
+        </section>
+      </article>
+      
+      <article class='fill'>
+        <p>
+          <img src='http://farm3.staticflickr.com/2605/4051083769_0dce9a1c85_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/tiemposdelruido/4051083769/">http://www.flickr.com/photos/tiemposdelruido/4051083769/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Packages and Modules
+        </h3>
+        <ul>
+          <li>No proper standard yet!</li>
+          <li><a href="http://wiki.commonjs.org/wiki/Modules/AsynchronousDefinition">Asynchronous Module Definition</a> (AMD) seems fairly popular</li>
+          <li>Needs a separate loader such as <a href="http://requirejs.org/">RequireJS</a></li>
+          <li>Extra scaffolding might seem annoying at first</li>
+          <li>It provides some significant benefits on larger codebases, though</li>
+        </ul>
+      </article>
+      
+      <article>
+        <h3>
+          AMD Module
+        </h3>
+        <section>
+        <pre>
+define(['math'], function { // imports
+    // ... inner implementation
+
+    return { // exports
+        fun: function() {
+            ...
+        }
+    };
+});
+// can be simplified as needed
+// ie. even define({}) works
+</pre>
+        </section>
+      </article>
+               
+      <article class='fill'>
+        <p>
+          <img src='http://farm4.staticflickr.com/3629/3481518317_633fec3d55_b.jpg'>
+        </p>
+        <div class='source'>
+          <a href="http://www.flickr.com/photos/qadanisan/3481518317/">http://www.flickr.com/photos/qadanisan/3481518317/</a>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Overview
+        </h3>
+        <ul>
+          <li>Versatile, dynamically typed scripting language</li>
+          <li>Surprisingly simple powerful</li>
+          <li>Quite popular (<a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">10th at TIOBE</a>)</li>
+          <li>Huge installed base (practically each web browser and major OS)</li>
+        </ul>
+      </article>
+      
+      <article>
+        <h4>Pros</h4>
+        <ul>
+          <li>High level language</li>
+          <li>Fast to develop</li>
+          <li>Easy to test</li>
+          <li>Well supported</li>
+        </ul>
+        <h4>Cons</h4>
+        <ul>
+          <li>Performance depends a lot on browser</li>
+          <li>Mediocre IDE support (<a href="http://www.jslint.com/">jslint</a> and <a href="http://www.jshint.com/">jshint</a> help, though)</li>
+          <li>Really easy to make subtle mistakes</li>
+          <li>No native module system</li>
+        </ul>
+      </article>
+            
+      <article>
+        <h3>
+          Thank you!
+        </h3>
+        
+        <ul>
+          <li><a href='http://www.koodilehto.fi'>koodilehto.fi</a></li>
+          <li><a href='https://github.com/bebraw/jswiki/wiki'>jswiki</a></li>
+          <li><a href='http://bonsaiden.github.com/JavaScript-Garden/'>JavaScript Garden</a></li>
+          <li><a href='https://developer.mozilla.org/en/JavaScript/'>MDN</a></li>
+        </ul>
+      </article>
+
+    </section>
+
+  </body>
 </html>
